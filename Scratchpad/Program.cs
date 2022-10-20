@@ -1,3 +1,4 @@
 ﻿using Scratchpad;
 
-Records.TestSet();
+//Records.TestSet();
+AbstractVsInterface.TestSet();
