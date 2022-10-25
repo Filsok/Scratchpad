@@ -16,13 +16,16 @@ namespace Scratchpad
             implement.Run();
             implement.Fast = true;
             //implement.IsFastRun();              //not possible
-            TakeMethod(implement);                  //kaboom?           //wow it works
+            TakeMethod(implement);                  //kaboom?           //wow it works      //ok, C#8.0 - explained.
+
+            IMyRunnable implement2 = new ImplementInterface();
+            implement2.IsFastRun();
         }
 
         private static void TakeMethod(IMyRunnable runnable)
         {
             if (runnable.IsFastRun())                   //what will happened?
-                Console.WriteLine("IsFastRun returns true!");       //why it works?
+                Console.WriteLine("IsFastRun returns true!");       //why it works?         //ok, C#8.0 - explained.
         }
     }
 
@@ -34,7 +37,7 @@ namespace Scratchpad
         //public float length;                    //not possible. Canno't use fields
         public void Run();
 
-        public bool IsFastRun()                         //should be not possible. why compiler let me do this??
+        public bool IsFastRun()                         //should be not possible. why compiler let me do this??         ////ok, C#8.0 - explained.
         {
             Console.WriteLine("Method body directly from interface MyRunnable IsFastRun()");
             if (Fast)
@@ -57,6 +60,8 @@ namespace Scratchpad
             _route = "default";
         }
 
+        protected abstract void GetClothes();
+
         private void Prepare()
         {
             Console.WriteLine("abstract class Run. Prepare()");
@@ -65,6 +70,10 @@ namespace Scratchpad
 
     internal class InheritClass : Run
     {
+        protected override void GetClothes()
+        {
+            Console.WriteLine("InheritClass.GetClothes()");
+        }
     }
 
     public class ImplementInterface : IMyRunnable
