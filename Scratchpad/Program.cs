@@ -2,4 +2,5 @@
 
 //Records.TestSet();
 //AbstractVsInterface.TestSet();
-AbstractVsVirtual.TestSetOverrideVsNew();
+//AbstractVsVirtual.TestSetOverrideVsNew();
+GenericTypes.TestSet();
