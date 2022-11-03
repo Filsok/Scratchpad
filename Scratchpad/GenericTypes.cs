@@ -11,10 +11,10 @@ namespace Scratchpad
             var result = new PaginetedResults<Restaurant, int>();
             result.Results = restaurants;
 
-            var stringRepository = new Repository<string>();
-            stringRepository.AddElement("some value");
-            var firstElement = stringRepository.GetElement(0);
-            Console.WriteLine($"first element: {firstElement}");
+            //var stringRepository = new Repository<string>();          //string has no ctor()
+            //stringRepository.AddElement("some value");
+            //var firstElement = stringRepository.GetElement(0);
+            //Console.WriteLine($"first element: {firstElement}");
 
             var userRepository = new Repository<string, User>();
             userRepository.AddElement("Bill", new User() { Name = "Bill Smith" });
@@ -44,12 +44,14 @@ namespace Scratchpad
     }
 
     public class Repository<T>
-        where T : ICloneable, IComparable
+        where T : ICloneable, new()
     {
         private List<T> data = new List<T>();
 
         public void AddElement(T element)
         {
+            var newElement = new T();
+
             if (element != null)
                 data.Add(element);
         }
