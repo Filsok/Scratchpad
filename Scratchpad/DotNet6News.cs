@@ -31,9 +31,15 @@ public static class DotNet6News
 
         var locationInfo = person switch
         {
-            { Address: { City: "Radom" } } and { Address: { HouseNumber: < 10 } } => "Radom below 10",
-            { Address: { City: "Radom" } } and { Address: { HouseNumber: >= 10 } } => "Radom atleast 10",
+            //{ Address: { City: "Radom" } } and { Address: { HouseNumber: < 10 } } => "Radom below 10",            //old way - nesting necessary
+            //{ Address: { City: "Radom" } } and { Address: { HouseNumber: >= 10 } } => "Radom atleast 10",
+            //_ => "no info"
+            { Address.City: "Radom" } and { Address.HouseNumber: < 10 } => "Radom below 10",                        //new way
+            { Address.City: "Radom" } and { Address.HouseNumber: >= 10 } => "Radom atleast 10",
+            _ => "no info"
         };
+
+        Console.WriteLine(locationInfo.ToString());
     }
 
     private static void AnonymousTypesImprovement()
