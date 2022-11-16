@@ -12,6 +12,31 @@ public static class DotNet6News
         RecordsImprovement();
         AnonymousTypesImprovement();
         ExtendedPropertyPatterns();
+        LambdaImprovement();
+        DeconstructorsImprovement();
+    }
+
+    private static void DeconstructorsImprovement()
+    {
+        var point = new Point(1, 5);
+        int a = 0;
+        (a, int b) = point;
+    }
+
+    internal record Point(int x, int y);
+
+    private static void LambdaImprovement()
+    {
+        Func<string, int> parseOld = (s) => int.Parse(s);       //C#9
+        var parse = (string s) => int.Parse(s);                 //C#10
+
+        var read = Console.Read();                      //Just one overload; (Func<int> inferred)
+        //var write = Console.WriteLine();              //ERROR: more than one overloads.
+        //Action<string> write2 = Console.WriteLine;
+
+        var result = object (bool b) => b ? 1 : "0";        //lambda return types
+
+        var someLambda = [Obsolete] (string s) => parse(s);     //lambda attributes
     }
 
     private static void ExtendedPropertyPatterns()
