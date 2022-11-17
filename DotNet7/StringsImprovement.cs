@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Text;
 
 namespace DotNet7.NewFeatures;
 
@@ -6,8 +7,36 @@ public class StringsImprovement
 {
     public static void TestSet()
     {
+        StringLiterals();
+        StringMultilineInterpolation();
+        StringUTF8();
+    }
+
+    private static void StringUTF8()
+    {
+        var someString = "blabla";
+        var oldEncoding = Encoding.UTF8.GetBytes("some string");
+        var newEncoding = "some string"u8.ToArray();
+
+        //var wrong = (someString)u8;                 //not supported
+    }
+
+    private static void StringMultilineInterpolation()
+    {
+        var rating = 2.9;
+        var message = $"This course has rating of {rating}, which means it {rating switch
+        {
+            < 3 => "sucks",
+            _ => "not bad"
+        }}";
+
+        Console.WriteLine(message);
+    }
+
+    private static void StringLiterals()
+    {
         string filename1 = "c:\\docume\"nts\\" +
-            "files\\filename.txt";
+                    "files\\filename.txt";
         string filename2 = @"c:\docume""nts\
                             files\filename.txt";
         string filename3 = """
@@ -49,4 +78,6 @@ public class StringsImprovement
     }
 }
 
-//String Literals """"
+//String Literals """
+//Multiline string interpolation
+//UTF8 encoding
