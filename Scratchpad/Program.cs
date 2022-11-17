@@ -1,5 +1,4 @@
 ﻿using Scratchpad;
-using Scratchpad.DotNet6News;
 
 //Records.TestSet();
 //AbstractVsInterface.TestSet();
@@ -7,5 +6,3 @@ using Scratchpad.DotNet6News;
 //GenericTypes.TestSet();
 //GenericDelegates.TestSet();
 //OtherTopics.TestSet();
-DotNet6News.TestSet();
-DotNet7News.TestSet();

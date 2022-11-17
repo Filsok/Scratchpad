@@ -1,8 +1,8 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Scratchpad.DotNet6News; //file scoped namespaces. instead of {} can be used only ";" after namespace name.
+namespace DotNet6.NewFeatures; //file scoped namespaces. instead of {} can be used only ";" after namespace name.
 
-public static class DotNet6News
+public static class NewFeatures
 {
     public static void TestSet()
     {
