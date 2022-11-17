@@ -5,4 +5,4 @@
 //AbstractVsVirtual.TestSetOverrideVsNew();
 //GenericTypes.TestSet();
 //GenericDelegates.TestSet();
-//OtherTopics.TestSet();
+OtherTopics.TestSet();

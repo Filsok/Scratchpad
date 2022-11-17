@@ -1,2 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using DotNet7.NewFeatures;
+
+Console.WriteLine("Hello, World! DotNet7 new features - let's check!");
+
+StringsImprovement.TestSet();
